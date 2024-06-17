@@ -19,7 +19,7 @@ def loop():
         lcd1602.clear()
         lcd1602.write(0, 0, 'Button Presses:' )
         global count
-        lcd1602.write(0, 1, count )
+        lcd1602.write(0, 1, str(count) )
         sleep(1)
 
 def destroy():
