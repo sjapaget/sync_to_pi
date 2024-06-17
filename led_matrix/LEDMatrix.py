@@ -15,6 +15,7 @@ dataPin   = OutputDevice(17)      # DS Pin of 74HC595(Pin14)
 latchPin  = OutputDevice(27)      # ST_CP Pin of 74HC595(Pin12)
 clockPin  = OutputDevice(22)      # CH_CP Pin of 74HC595(Pin11)
 pic = [0x1c,0x22,0x51,0x45,0x45,0x51,0x22,0x1c]
+inverted = [0x1c,0x22,0x51,0x45,0x45,0x51,0x22,0x1c]
     
 def shiftOut(order,val):
     for i in range(0,8):
@@ -27,7 +28,7 @@ def shiftOut(order,val):
 
 def loop():
     while True:
-        for j in range(0,500): # Repeat enough times to display the smiling face a period of time
+        for j in range(0,100): # Repeat enough times to display the smiling face a period of time
             x=0x80
             for i in range(0,8):
                 latchPin.off()
@@ -36,7 +37,18 @@ def loop():
                 shiftOut(MSBFIRST,~x) #then shift data of column information to second stage 74HC959
                 latchPin.on()         # Output data of two stage 74HC595 at the same time
                 time.sleep(0.001) # display the next column
-                x>>=1 
+                x>>=1
+        for j in range(0,100):
+            x=0x80
+            for i in range(0,8):
+                latchPin.off()
+                shiftOut(MSBFIRST,inverted[i]) 
+
+                shiftOut(MSBFIRST,~x)
+                latchPin.on()
+                time.sleep(0.001)
+                x>>=1
+        
 def destroy():  
     dataPin.close()
     latchPin.close()
