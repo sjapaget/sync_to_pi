@@ -7,7 +7,7 @@ count = 0
 def whenButtonPressed():
     global count 
     count += 1
-    print("Button is pressed, count is #{count}")
+    print(f"Button is pressed, count is {count}")
 
 
 def loop():
