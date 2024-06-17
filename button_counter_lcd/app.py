@@ -10,7 +10,8 @@ def whenButtonPressed():
 
 
 def loop():
-    button.when_pressed = whenButtonPressed
+    while(True):
+        button.when_pressed = whenButtonPressed
 
 def destroy():
     button.close()
