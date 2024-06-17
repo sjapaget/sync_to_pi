@@ -14,6 +14,7 @@ def whenButtonPressed():
 
 
 def loop():
+    lcd1602.init_lcd()
     while(True):
         button.when_pressed = whenButtonPressed
         lcd1602.clear()
