@@ -17,11 +17,12 @@ def get_time_now():     # get system time
     
 def loop():
     lcd1602.init_lcd()
-    
+
     while(True):
-        message = input("Type Something:")
         lcd1602.clear()
-        lcd1602.write( 0, 0, message )
+        lcd1602.write( 0, 0, get_time_now() )
+        lcd1602.write( 0, 1, get_cpu_temp() )
+        sleep(0.2)
 
 def destroy():
     lcd1602.clear()
