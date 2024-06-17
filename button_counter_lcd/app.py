@@ -8,7 +8,7 @@ lcd1602 = CharLCD1602()
 count = 0
 
 def whenButtonPressed():
-    # global count 
+    global count 
     count += 1
     print(f"Button is pressed, count is {count}")
 
