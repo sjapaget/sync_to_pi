@@ -25,6 +25,7 @@ def loop():
 
 def destroy():
     button.close()
+    lcd1602.clear()
 
 if __name__ == '__main__':
     print ('Program is starting ... ') 
