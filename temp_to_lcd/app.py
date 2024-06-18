@@ -4,6 +4,7 @@ import math
 import time
 
 lcd1602 = CharLCD1602()  
+adc = ADCDevice()
 
 def setup():
     global adc
