@@ -36,7 +36,7 @@ def loop():
     while True:
         tempString = getTemp()
         displayTemp(tempString)
-        time.sleep(0.01)
+        time.sleep(0.2)
 
 def destroy():
     adc.close()
