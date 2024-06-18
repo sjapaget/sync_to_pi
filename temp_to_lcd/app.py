@@ -7,7 +7,9 @@ lcd1602 = CharLCD1602()
 
 def setup():
     global adc
-    if(adc.detectI2C(0x4b)): # Detect the ads7830
+    if(adc.detectI2C(0x48)): # Detect the pcf8591.
+        adc = PCF8591()
+    elif(adc.detectI2C(0x4b)): # Detect the ads7830
         adc = ADS7830()
     else:
         print("No correct I2C address found, \n"
